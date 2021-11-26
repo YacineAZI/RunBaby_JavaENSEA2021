@@ -20,10 +20,18 @@ public class Hero extends AnimatedThing {
 
     public void jump(){
         if (y>=yGround+sizey){
-            f_y +=300;
+            f_y +=250;
         }
 
     }
+
+    public void acceleration(){
+        f_x +=1;
+    }
+    public void deceleration(){
+        f_x -=1;
+    }
+
     public void setForce(double f_x,double f_y){
         this.f_x=f_x;
         this.f_y=0;

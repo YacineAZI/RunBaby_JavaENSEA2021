@@ -24,7 +24,7 @@ public class Main extends Application {
         Group root = new Group();
         Pane pane = new Pane(root);
 
-        GameScene gameScene = new GameScene(pane,800,400);
+        GameScene gameScene = new GameScene(pane,800,300);
         primaryStage.setScene(gameScene);
         primaryStage.show();
     }

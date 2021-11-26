@@ -24,6 +24,7 @@ public class GameScene extends Scene {
         pane.getChildren().add(staticThingRight.getImageView());
 
 
+
         this.hero = new Hero(100, 250, 1, 0, 100000000, 6, 75, 100, 10, "img/heros.png");
         hero.getImageView().setViewport(new Rectangle2D(20, 0, 60, 100));
 
@@ -57,38 +58,42 @@ public class GameScene extends Scene {
         heart3.getImageView().setY(20);
         pane.getChildren().add(heart3.getImageView());
 
+
+
         AnimationTimer timer = new AnimationTimer() {
             public void handle(long time) {
                 camera.update(time, hero);
                 hero.update(time);
                 staticThingLeft.getImageView().setViewport(new Rectangle2D(camera.getXback() % 800, 0, 800, 400));
                 staticThingLeft.getImageView().setX(staticThingLeft.getX());
-                staticThingLeft.getImageView().setY(-camera.getY());
+                staticThingLeft.getImageView().setY(-100-camera.getY());
                 staticThingRight.getImageView().setViewport(new Rectangle2D(0, 0, 800, 400));
-                staticThingRight.getImageView().setX((800 - camera.getXback() % 800));
-                staticThingRight.getImageView().setY(-camera.getY());
-
+                staticThingRight.getImageView().setX((800 - camera.getXback()% 800));
+                staticThingRight.getImageView().setY(-100-camera.getY());
 
                 obstacle.getImageView().setViewport(new Rectangle2D(0, 0, 150, 105));
                 obstacle.getImageView().setX(800 - camera.getXback() % 800);
-                obstacle.getImageView().setY(-camera.getY() + 245);
+                obstacle.getImageView().setY(-100-camera.getY() + 245);
+                hero.getImageView().setX(hero.getX());
+                hero.getImageView().setY(hero.getY()-100);
 
-                hero.getImageView().setX(hero.getX() - camera.getX());
 
-                hero.getImageView().setX(50);
-                hero.getImageView().setY(hero.getY());
+
 
                 setOnKeyPressed((event) -> {
                     switch (event.getCode()) {
                         case SPACE -> {
-                            System.out.println("Jump");
-                            hero.jump();
-                            /**
-                            System.out.println("a_y=" + hero.getA_y());
-                            System.out.println("v_y=" + hero.getV_y());
-                            System.out.println("y=" + hero.getY());
-                            System.out.println("f_y=" + hero.getF_y());
-                            **/
+                                System.out.println("Jump");
+                                hero.jump();
+
+                            break;
+                        }
+                        case D -> {
+                            hero.acceleration();
+                            break;
+                        }
+                        case Q -> {
+                            hero.deceleration();
                             break;
 
                         }

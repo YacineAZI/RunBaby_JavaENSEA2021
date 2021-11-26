@@ -47,12 +47,10 @@ public class Camera {
         vx+=ax;
         x+=vx;
 
-        /*
-        ay=c1*(y_hero-250-y)-c2*vy;
 
+        ay=c1*(y_hero-250-y)-c2*vy;
         vy+=ay;
         y+=vy;
-        */
 
     }
 

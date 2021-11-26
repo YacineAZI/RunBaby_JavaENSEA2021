@@ -18,6 +18,8 @@ abstract public class AnimatedThing {
     public String filename;
     public ImageView imageView;
     public AnimationTimer timer;
+    public int  acceleration = 6;
+
     public AnimatedThing(double x, double y, int attitude, long a, double duration, int maxa, double sizex, double siezy, int offset, String filename) {
         this.x = x;
         this.y = y;
@@ -48,17 +50,17 @@ abstract public class AnimatedThing {
         if (attitute == Attitude.JUMPING_UP) {
             this.imageView.setViewport(new Rectangle2D(10, 160, 60, 105));
         } else if (attitute == Attitude.RUNNING) {
-            if (attitude % 42 == 7) {
+            if (attitude % (6*acceleration)== acceleration) {
                 this.imageView.setViewport(new Rectangle2D(20, 0, 60, 100));
-            } else if (attitude % 42 == 14) {
+            } else if (attitude % (6*acceleration) == 2*acceleration) {
                 this.imageView.setViewport(new Rectangle2D(95, 0, 70, 100));
-            } else if (attitude % 42 == 21) {
+            } else if (attitude % (6*acceleration) == 3*acceleration) {
                 this.imageView.setViewport(new Rectangle2D(170, 10, 85, 90));
-            } else if (attitude % 42 == 28) {
+            } else if (attitude % (6*acceleration) == 4*acceleration) {
                 this.imageView.setViewport(new Rectangle2D(270, 10, 65, 90));
-            } else if (attitude % 42 == 35) {
+            } else if (attitude % (6*acceleration) == 5*acceleration) {
                 this.imageView.setViewport(new Rectangle2D(345, 0, 70, 100));
-            } else if (attitude % 42 == 0) {
+            } else if (attitude % (6*acceleration) == 0) {
                 this.imageView.setViewport(new Rectangle2D(425, 15, 80, 85));
             }
         }else if(attitute==Attitude.JUMPING_DOWN) {
