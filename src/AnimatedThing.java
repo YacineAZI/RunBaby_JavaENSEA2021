@@ -46,7 +46,6 @@ abstract public class AnimatedThing {
 
     public void update(long t) {
         if (attitute == Attitude.JUMPING_UP) {
-            //System.out.println("99");
             this.imageView.setViewport(new Rectangle2D(10, 160, 60, 105));
         } else if (attitute == Attitude.RUNNING) {
             if (attitude % 42 == 7) {

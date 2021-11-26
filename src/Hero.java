@@ -51,18 +51,14 @@ public class Hero extends AnimatedThing {
         updateAttitude();
         super.update(t);
 
-
-        //a_x=f_x/m;
-        //v_x+=a_x;
-        //x += v_x;
-
-
-
-
+        a_x=f_x/m;
+        v_x+=a_x;
+        x += v_x;
 
         a_y =(g-(f_y/m));
         v_y += a_y;
         y += v_y;
+        
         if (y > yGround + sizey) {
             if (v_y > 0) {
                     v_y = 0;

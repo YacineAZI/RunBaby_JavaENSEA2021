@@ -83,10 +83,12 @@ public class GameScene extends Scene {
                         case SPACE -> {
                             System.out.println("Jump");
                             hero.jump();
+                            /**
                             System.out.println("a_y=" + hero.getA_y());
                             System.out.println("v_y=" + hero.getV_y());
                             System.out.println("y=" + hero.getY());
                             System.out.println("f_y=" + hero.getF_y());
+                            **/
                             break;
 
                         }
